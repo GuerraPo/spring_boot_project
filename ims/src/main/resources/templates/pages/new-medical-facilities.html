@@ -1,0 +1,69 @@
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/main_layout}">
+<div layout:fragment="content">
+    <div class="section section-gray" style="padding-bottom:0 !important;margin-bottom:0 !important">
+      <div class="container">
+        <form method="POST" action="" id="FACILITIES_APPLICATION_FORM"
+              th:object="${medical}">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                  <h2 class="title">Medical Facilities Application Form</h2>
+                  <br>
+                </div>
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="row">
+                      <div class="col-md-6">
+                          <div class="form-group">
+                              <label>Laboratory / Hospital Name<small style="color:red;">*</small></label>
+                            <input type="text" name="laboratory_name" id="LABORATORY_NAME" class="form-control" th:field="*{laboratoryName}" required/>
+                          </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Location<small style="color:red;">*</small></label>
+                          <input type="text" name="location" id="LOCATION" class="form-control"  th:field="*{location}" required/>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Email <small style="color:red;">*</small></label>
+                          <input type="email" name="email" id="EMAIL" class="form-control" th:field="*{email}" required/>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>Mobile Number<small style="color:red;">*</small> </label>
+                          <input type="text" name="mobile_number" id="MOBILE_NUMBER" class="form-control"  th:field="*{mobileNum}" required/>
+                        </div>
+                      </div>
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label>Telephone  Number<small style="color:red;">*</small> </label>
+                            <input type="text" name="telephone_number" id="TELEPHONE_NUMBER" class="form-control"  th:field="*{telephoneNum}" />
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-md-offset-9">
+                <button type='submit' class='btn btn-finish btn-fill btn-success btn-wd' name='finish'
+                        id="SUBMIT_FACILITIES_APPLICATION">
+                  Save
+                </button>
+                <a class="btn btn-default" href="medical-facilities">Cancel</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      <div th:replace="fragments/footer :: footer"></div>
+    </div>
+  </div>
+
+</html>
+<script src="/PublicAccessPortal/assets/js/wizard/jquery.validate.min.js"></script>
+
+<script src="/PublicAccessPortal/assets/js/personalize/facilities-application.js"></script>
+

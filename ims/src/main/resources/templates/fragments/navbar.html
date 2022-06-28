@@ -1,0 +1,88 @@
+<nav class="navbar navbar-maroon navbar-fixed-top" th:fragment="navbar">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/PublicAccessPortal">
+                <div class="row">
+                    <div class="col-xs-2">
+                        <div class="logo-image">
+                            <img src="/PublicAccessPortal/assets/img/gab.png" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-xs-10">
+                        Games and Amusement Board
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="non-user">
+                    <a href="register">
+                        <i class="material-icons">person_add</i> Register
+                    </a>
+                </li>
+                <li class="non-user">
+                    <a href="login">
+                        <i class="material-icons">fingerprint</i> Login
+                    </a>
+                </li>
+
+                <li class="dropdown user-only">
+                    <a href="#pablo" class="profile-photo dropdown-toggle" data-toggle="dropdown">
+                        <div class="profile-photo-small">
+                            <img id="avatar" alt="Circle Image" class="img-circle img-responsive">
+                        </div>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-maroon">
+                        <li class="dropdown-header">
+                            Settings
+                        </li>
+                        <li id="my-user-profile">
+                            <a th:href="@{/user-profile}">My User Profile</a>
+                        </li>
+<!--                        <li id="personal-details">
+                            <a href="#pablo">Personal Details</a>
+                        </li>-->
+                        <li class="divider applicant-menu"></li>
+                        <li class="dropdown-header applicant-menu admin-menu">
+                            Manage Applications
+                        </li>
+                        <li class="applicant-menu " id="license-permit">
+                            <a th:href="@{/applications}">Licenses & Permits</a>
+                        </li>
+                        <li class="admin-menu " id="walkin-applicant">
+                            <a th:href="@{/walk-in-form}">Walk-in Application</a>
+                        </li>
+<!--                        <li class="divider admin-menu"></li>-->
+<!--                        <li class="dropdown-header admin-menu">-->
+<!--                            Medical-->
+<!--                        </li>-->
+<!--                    &lt;!&ndash;    <li class="applicant-menu" id="medical-appointments">-->
+<!--                            <a href="medical-appointment">Medical Appointments</a>-->
+<!--                        </li>&ndash;&gt;-->
+<!--                        <li class="admin-menu" id="medical-facilities">-->
+<!--                            <a th:href="@{/medical-facilities}" >Medical Facilities</a>-->
+<!--                        </li>-->
+                        <li class="divider admin-menu"></li>
+                        <li class="dropdown-header super-admin-menu">
+                            Administrator
+                        </li>
+                        <li class="super-admin-menu" id="user-level">
+                            <a href="web-user">Web Users</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a th:href="@{/logout}">Sign out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

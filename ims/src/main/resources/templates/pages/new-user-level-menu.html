@@ -1,0 +1,43 @@
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/main_layout}">
+<div layout:fragment="content">
+    <div class="section section-gray" style="padding-bottom:0 !important;margin-bottom:0 !important">
+        <div class="container">
+            <form method="POST" action="" id="USER_LEVEL_MENU_FORM">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2 class="title">User Level Menu Form</h2>
+                        <br>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <h2 class="card-title">
+                                    User Level Menu Application
+                                </h2>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Menu name</label>
+                                        <input type="text" name="menuName" id="MENU_NAME" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-md-offset-9">
+                        <button type='submit' class='btn btn-finish btn-fill btn-success btn-wd' name='finish'
+                                id="SUBMIT_APPLICATION">
+                            Save
+                        </button>
+                        <a class="btn btn-default" href="applications">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="section-space"></div>
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+</html>
+<script src="/PublicAccessPortal/assets/js/wizard/jquery.validate.min.js"></script>
+<script src="/PublicAccessPortal/assets/js/personalize/new-user-level-menu.js"></script>

@@ -1,0 +1,81 @@
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/main_layout}">
+<div layout:fragment="content">
+    <div class="page-header header-filter header-small" data-parallax="true"
+         style="background-image: url('../assets/img/bg9.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2" align="center">
+                    <h2 class="title">New User Level</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main main-raised ">
+        <div class="container" style="padding-top:20px;">
+            <a class="btn btn-default" href="user-level-menu">
+                <i class="material-icons">add</i> User-menu
+                <div class="ripple-container"></div>
+            </a>
+            <div>
+                <table id="datatable" class="table" style="width:100%">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Menu Name</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody id="USER_MENU_LIST">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- user menu modal form--->
+    <div class="modal fade" id="updateUserMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        <i class="material-icons">clear</i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" action="" id="USER_LEVEL_MENU_FORM">
+                        <input type="hidden" name="id" id="id" class="form-control">
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-content">
+                                    <h2 class="card-title">
+                                        User Level Menu Application
+                                    </h2>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Menu name</label>
+                                            <input type="text" name="menuName" id="MENU_NAME" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type='submit' class='btn btn-finish btn-fill btn-success btn-wd' name='finish'
+                            id="SUBMIT_APPLICATION">
+                        Save
+                    </button>
+                    <button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">Close</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-space"></div>
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+</html>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="/PublicAccessPortal/assets/js/personalize/user-level-menu.js"></script>

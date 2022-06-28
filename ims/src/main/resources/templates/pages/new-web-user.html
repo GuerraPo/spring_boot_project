@@ -1,0 +1,100 @@
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/main_layout}">
+<div layout:fragment="content">
+    <div class="section section-gray" style="padding-bottom:0 !important;margin-bottom:0 !important">
+        <div class="container">
+            <form method="POST" action="" id="USER_LEVEL_FORM" th:object="${user}" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2 class="title">Web User Form</h2>
+                        <br>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    Web User Applications
+                                </h4>
+                                <div class="col-lg-4">
+                                    <h4><small>Avatar</small></h4>
+                                    <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail img-raised">
+                                            <img src="/PublicAccessPortal/assets/img/placeholder.jpg" alt="...">
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
+                                        <div>
+                            <span class="btn btn-raised btn-round btn-default btn-file">
+                                <span class="fileinput-new">Select image</span>
+                                <span class="fileinput-exists">Change</span>
+                                <input type="file" name="image"
+                                       accept="image/png, image/jpeg, image/jpg"/>
+                            </span>
+                                            <a href="#pablo" class="btn btn-danger btn-round fileinput-exists"
+                                               data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-8">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Username</label>
+                                            <input type="text" name="username" id="USERNAME" class="form-control"
+                                                   th:field="*{username}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Email Address</label>
+                                            <input type="email" name="email" id="EMAIL" class="form-control"
+                                                   th:field="*{email}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>User Role</label>
+                                            <div style="margin-top: -6px !important;">
+                                                <select class="selectpicker" data-style="select-with-transition"
+                                                        title="Select Role" data-size="7"
+                                                        id="ROLE" name="role" th:field="*{roles}">
+                                                          <span th:each="userRoles : ${userRoles}">
+                                                             <option th:value="${userRoles.roleId}" th:text="${userRoles.roleName}"></option>
+                                                          </span>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input type="password" name="password" id="PASSWORD" class="form-control"
+                                                   th:field="*{password}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Confirm Password</label>
+                                            <input type="password" name="confirm_password" id="CONFIRM_PASSWORD"
+                                                   class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-md-offset-9">
+                        <button type='submit' class='btn btn-finish btn-fill btn-success btn-wd' name='finish'
+                                id="SUBMIT_APPLICATION">
+                            Save
+                        </button>
+                        <a class="btn btn-default" href="web-user">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="section-space"></div>
+    <div th:replace="fragments/footer :: footer"></div>
+</div>
+</html>
+<script src="/PublicAccessPortal/assets/js/wizard/jquery.validate.min.js"></script>
+<script src="/PublicAccessPortal/assets/js/personalize/new-user-level.js"></script>

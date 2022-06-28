@@ -1,0 +1,307 @@
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/main_layout}">
+<div layout:fragment="content">
+    <div class="section section-gray" style="padding-bottom:0 !important;margin-bottom:0 !important">
+        <div class="container">
+            <form method="POST" action="" id="PERMIT_APPLICATION_FORM"
+                  th:object="${application}">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <h2 class="title">Permit Application Form</h2>
+                        <br>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="radio">
+                                    <label onclick="newPermit()">
+                                        <input type="radio" name="APPLICATION_TYPE" checked="true">
+                                        New
+                                    </label>
+                                    <label onclick="renewPermit()">
+                                        <input type="radio" name="APPLICATION_TYPE">
+                                        Use Previous Details
+                                    </label>
+<!--                                    <input type="hidden" name="vAPPLICATION_TYPE" id="permitType" value="P">-->
+                                </div>
+                                <div class="row" id="licenseField" style="display:none">
+                                    <form>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="label-control">Permit Number</label>
+                                                <span>
+                                                <input type="text" id="PERMIT_NUMBER" name="PERMIT_NUMBER"
+                                                       class="form-control" th:field="*{vPERMIT_NUMBER}"
+                                                />
+                                            </span>
+                                                <span>
+                                                 <a href="#" class="btn btn-default" id="SEARCH">SEARCH</a>
+                                            </span>
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="label-control">Division<small style="color:red;">*</small></label>
+                                            <select class="selectpicker PBOPG_required_select BOCSD_required_select HRBSD_required_select" data-style="btn btn-primary btn-round"
+                                                    title="Single Select" data-size="7"
+                                                    id="DIVISIONS" name="DIVISIONS">
+                                                <option value="PBOPG">Pro-Basketball & Other Pro-Games Division</option>
+                                                <option value="BOCSD">Boxing and Other Contact Sports Division</option>
+                                                <option value="HRBSD">Horse Racing Betting Supervision Division</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="label-control">Sport<small style="color:red;">*</small></label>
+                                            <select class="selectpicker PBOPG_required_select_sports BOCSD_required_select_sports HRBSD_required_select_sports" id="sports"
+                                                    data-style="btn btn-primary btn-round" disabled="true"
+                                                    title="Choose Sport" data-size="7"
+                                                    th:field="*{vSPORTS}">
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="label-control">Application Type<small style="color:red;">*</small></label>
+                                            <select class="selectpicker vAPPLICATION_TYPE_SELECT" id="vAPPLICATION_TYPE"
+                                                    data-style="btn btn-primary btn-round" name="vAPPLICATION_TYPE" disabled="true"
+                                                    title="Choose One" data-size="7">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    Promoter's Name
+                                </h4>
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <input type="hidden" name="vSAVE_AS_DRAFT" id="vSAVE_AS_DRAFT" th:field="*{vSAVE_AS_DRAFT}">
+                                            <label class="label-control">Last Name<small style="color:red;">*</small></label>
+                                            <input type="text" id="LAST_NAME" name="LAST_NAME" class="form-control PBOPG_required BOCSD_required HRBSD_required"
+                                                   th:field="*{vLAST_NAME}" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="label-control">First Name<small style="color:red;">*</small></label>
+                                            <input type="text" id="FIRST_NAME" name="FIRST_NAME" class="form-control PBOPG_required BOCSD_required HRBSD_required"
+                                                   th:field="*{vFIRST_NAME}" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="label-control">Middle Name</label>
+                                            <input type="text" id="MIDDLE_NAME" name="MIDDLE_NAME" class="form-control"
+                                                   th:field="*{vMIDDLE_NAME}" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="form-group">
+                                            <label class="label-control">Nickname/Alias</label>
+                                            <input type="text" id="NICKNAME" name="NICKNAME" class="form-control"
+                                                   th:field="*{vNICK_NAME}" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 PBOPG">
+                                        <div class="form-group">
+                                            <label class="label-control">Start of Event<small style="color:red;">*</small></label>
+                                            <input type="text" class="form-control datepicker PBOPG_required" name="EVENT_START"
+                                                   id="EVENT_START" th:field="*{vDATE_START}" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 PBOPG">
+                                        <div class="form-group">
+                                            <label class="label-control">End of Event<small style="color:red;">*</small></label>
+                                            <input type="text" class="form-control datepicker PBOPG_required" name="EVENT_END"
+                                                   id="EVENT_END" th:field="*{vDATE_END}" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 PBOPG">
+                                        <div class="form-group">
+                                            <label class="label-control">Tournament/Event/Promotion<small style="color:red;">*</small></label>
+                                            <input type="text" id="EVENT" name="EVENT" class="form-control PBOPG_required"
+                                                th:field="*{vEVENT}" />
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 HRBSD" style="display:none;">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label class="label-control">Home Address</label>
+                                                <input type="text" name="HOME_ADDRESS" id="HOME_ADDRESS" class="form-control" th:field="*{vHOME_ADDRESS}" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="label-control">Telephone No. (Home)</label>
+                                                <input type="text" name="TELEPHONE" id="TELEPHONE" class="form-control" th:field="*{vTELEPHONE_HOME}" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-9 PBOPG HRBSD">
+                                        <div class="form-group">
+                                            <label class="label-control">Location<small style="color:red;">*</small></label>
+                                            <input type="text" id="LOCATION" name="LOCATION" class="form-control PBOPG_required HRBSD_required"
+                                                th:field="*{vLOCATION}" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group PBOPG HRBSD">
+                                            <label class="label-control">Club/Organization<small style="color:red;">*</small></label>
+                                            <select class="selectpicker PBOPG_required_select_club HRBSD_required_select_club" id="CLUB"
+                                                    data-style="btn btn-primary btn-round"
+                                                    title="Choose One" data-size="7" th:field="*{vCLUB}">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 HRBSD" style="display:none;">
+
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                            <label class="label-control">Oscular Insection Report</label>
+                                                <div class="form-group form-file-upload">
+                                                    <input type="file" id="OSCULAR_FILE" name="OSCULAR_FILE">
+                                                    <div class="input-group">
+                                                        <input type="text" readonly="" class="form-control"
+                                                               placeholder="Attach File">
+                                                        <span class="input-group-btn input-group-s">
+										                 <button type="button"
+                                                            class="btn btn-just-icon btn-round btn-primary">
+										        	    <i class="material-icons">attach_file</i>
+									        	         </button>
+                                                                <input type="hidden" id="OIR_REPORT" name="OIR_REPORT" accept="image/png, image/jpeg, image/jpg">
+								            	     </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                            <label class="label-control">Google Map</label>
+                                                <div class="form-group form-file-upload">
+                                                    <input type="file" id="GOOGLE_MAP_FILE" name="GOOGLE_MAP_FILE">
+                                                    <div class="input-group">
+                                                        <input type="text" readonly="" class="form-control"
+                                                               placeholder="Attach File">
+                                                        <span class="input-group-btn input-group-s">
+										                 <button type="button"
+                                                                 class="btn btn-just-icon btn-round btn-primary">
+										        	    <i class="material-icons">attach_file</i>
+									        	         </button>
+                                                                <input type="hidden" id="GM_FILE" name="GM_FILE" accept="image/png, image/jpeg, image/jpg">
+								            	     </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 BOCSD" style="display: none;">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                            <label class="label-control">Tv Coverage: Available</label>
+                                            <select class="selectpicker" data-style="btn btn-primary btn-round"
+                                                    title="Select" data-size="7"
+                                                    id="TV_COVERAGE" th:field="*{vTV_COVERAGE}" >
+                                                <option value="YES">Yes</option>
+                                                <option value="NO">No</option>
+                                            </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                            <label class="label-control">Ticket Sales: Available</label>
+                                            <select class="selectpicker" data-style="btn btn-primary btn-round" id="TICKETS" title="Select" data-size="7" th:field="*{vTICKETS}">
+                                                <option value="YES">Yes</option>
+                                                <option value="NO">No</option>
+                                            </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12">
+                                        <h4 class="card-title">Event</h4>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                            <label class="label-control">Date</label>
+                                            <input type="text" class="form-control datepicker" name="DATE_EVENT" id="DATE_EVENT" th:field="*{vDATE_EVENT}" >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                            <label class="label-control">Time</label>
+                                            <input type="text" class="form-control timepicker" name="TIME_EVENT" id="TIME_EVENT" th:field="*{vTIME_EVENT}" >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                            <label class="label-control">Place</label>
+                                            <input type="text" class="form-control" name="PLACE_EVENT" id="PLACE_EVENT" th:field="*{vPLACE_EVENT}" >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                            <label class="label-control">Attached Request Letter</label>
+                                                <div class="form-group form-file-upload">
+                                                    <input type="file" id="LETTER_FILE" name="LETTER_FILE">
+                                                    <div class="input-group">
+                                                        <input type="text" readonly="" class="form-control"
+                                                               placeholder="Attach File">
+                                                        <span class="input-group-btn input-group-s">
+										                 <button type="button"
+                                                                 class="btn btn-just-icon btn-round btn-primary">
+										        	    <i class="material-icons">attach_file</i>
+									        	         </button>
+                                                                <input type="hidden" id="ARL_FILE" name="ARL_FILE" accept="image/png, image/jpeg, image/jpg">
+								            	     </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-md-offset-8">
+                        <button type='submit' class='btn btn-finish btn-fill btn-success btn-wd' name='finish'
+                                id="SUBMIT_APPLICATION">
+                            Submit
+                        </button>
+                        <button type='submit' class='btn btn-finish btn-fill btn-success btn-wd' name='finish'
+                                id="SAVE_APPLICATION">
+                            Save as Draft
+                        </button>
+                        <a class="btn btn-default" th:href="@{/applications}">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div th:replace="fragments/footer :: footer"></div>
+    </div>
+</div>
+</html>
+
+<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+<script src="/PublicAccessPortal/assets/js/wizard/jquery.validate.min.js"></script>
+
+<script src="/PublicAccessPortal/assets/js/personalize/permit-application.js"></script>
+
+<script src="/PublicAccessPortal/assets/js/personalize/permit.js"></script>

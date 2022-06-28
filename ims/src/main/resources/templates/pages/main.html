@@ -1,0 +1,92 @@
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/main_layout}">
+    <div layout:fragment="content">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <div class="carousel slide" data-ride="carousel">
+
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="page-header header-filter"
+                             style="background-image: url('assets/img/car1.jpg');">
+                        </div>
+
+                    </div>
+                    <div class="item">
+                        <div class="page-header header-filter"
+                             style="background-image: url('assets/img/car2.jpg');">
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="page-header header-filter"
+                             style="background-image: url('assets/img/car3.png');">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                    <i class="material-icons">keyboard_arrow_left</i>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                    <i class="material-icons">keyboard_arrow_right</i>
+                </a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-10 col-md-offset-1">
+                    <h2 class="title">Services Offered</h2>
+
+                    <br />
+                    <div class="card card-plain card-blog">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <div class="card-image">
+                                    <img class="img img-raised" src="assets/img/examples/card-blog4.jpg" />
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <h3 class="card-title">
+                                    <a href="#pablo">Online license and permit applications</a>
+                                </h3>
+                                <p class="card-description">
+                                    Application for permits and licenses are now easier.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-plain card-blog">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <h3 class="card-title">
+                                    <a href="#pablo">Applicant Registration</a>
+                                </h3>
+                                <p class="card-description">
+                                    Gain access and to Games and Amusement Board's current and future services by being a member. Just click the "Register" button to begin.
+                                </p>
+                            </div>
+                            <div class="col-md-5">
+                                <div class="card-image">
+                                    <img class="img img-raised" src="assets/img/office2.jpg" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section-space"></div>
+        <div th:replace="fragments/footer :: footer"></div>
+    </div>
+</html>

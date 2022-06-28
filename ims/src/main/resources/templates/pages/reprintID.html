@@ -1,0 +1,265 @@
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/main_layout}">
+
+<div layout:fragment="content">
+  <div class="section section-gray" style="padding-bottom:0 !important;margin-bottom:0 !important">
+    <div class="container">
+      <form method="POST" action="" id="REPRINT_ID_FORM"
+             enctype="multipart/form-data">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h2 class="title">Reprinting Application ID Form</h2>
+            <br>
+          </div>
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-content">
+                <h4 class="card-title">
+                  Application Information
+                </h4>
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="col-md-12">
+                        <input type="hidden" name="vSAVE_AS_DRAFT" id="vSAVE_AS_DRAFT" />
+                      <input type="hidden" name="vAPPLICATION_TYPE" id="vAPPLICATION_TYPE" value="I">
+                      <input type="hidden" name="vID_FOR" id="vID_FOR">
+                        <input type="hidden" name="vBIRTH_PLACE" id="vBIRTH_PLACE">
+                      <input type="hidden" name="vAGE" id="vAGE">
+                      <input type="hidden" name="vHEIGHT" id="vHEIGHT">
+                      <input type="hidden" name="vWEIGHT" id="vWEIGHT">
+                      <div class="col-lg-3">
+                        <div class="form-group">
+                          <label class="label-control">Reason<small style="color:red;">*</small></label>
+<!--                          <select class="selectpicker" data-style="select-with-transition" id="vREASONS_FOR_ID_REPRINT" name="vREASONS_FOR_ID_REPRINT" title="Select">-->
+<!--                            <option>ID Loss</option>-->
+<!--                            <option>Update ID Details</option>-->
+                          <select class="selectpicker" data-style="select-with-transition"
+                                  title="Select" data-size="7" name="vREASONS_FOR_ID_REPRINT" id="vREASONS_FOR_ID_REPRINT" >
+                            <option value="ID loss" selected>ID loss</option>
+                            <option value="Update ID details">Update ID details</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="form-group">
+                          <label class="label-control">License Number<small style="color:red;">*</small></label>
+                          <input type="text" id="vLICENSE_NUMBER" name="vLICENSE_NUMBER" class="form-control" readonly/>
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="label-control">License For<small style="color:red;">*</small></label>
+                          <input type="text" id="ROLE_NAME" name="ROLE_NAME" class="form-control" readonly/>
+                          <input type="hidden" id="vROLES" name="vROLES"/>
+                          <input type="hidden" id="vSPORTS" name="vSPORTS"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="col-lg-3">
+                        <div class="form-group">
+                          <label class="label-control">Last Name<small style="color:red;">*</small></label>
+                          <input type="text" id="vLAST_NAME" name="vLAST_NAME" class="form-control" readonly="true"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="form-group">
+                          <label class="label-control">First Name<small style="color:red;">*</small></label>
+                          <input type="text" id="vFIRST_NAME" name="vFIRST_NAME" class="form-control" readonly="true"
+
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="form-group">
+                          <label class="label-control">Middle Name</label>
+                          <input type="text" id="vMIDDLE_NAME" name="vMIDDLE_NAME" class="form-control" readonly="true"
+
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="form-group">
+                          <label class="label-control">Suffix</label>
+                          <input type="text" id="vSUFFIX" name="vSUFFIX" class="form-control" readonly="true"
+
+                          />
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-9">
+                      <div class="col-lg-2">
+                        <div class="form-group">
+                          <label class="label-control">Gender<small style="color:red;">*</small></label>
+                          <select class="selectpicker" id="gender" name="gender"
+                                  data-style="select-with-transition" title="Select gender" disabled
+                                  data-size="7" required="required">
+                            <option value="Male" class="select-option">Male</option>
+                            <option value="Female" class="select-option">Female</option>
+                          </select>
+                          <input type="hidden" name="vGENDER" id="vGENDER">
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="form-group">
+                          <label class="label-control">Civil status<small style="color:red;">*</small></label>
+                          <select class="selectpicker" data-style="select-with-transition"
+                                  title="Select" data-size="7" name="civilstatus" id="civilstatus" disabled>
+                            <option value="Married">Married</option>
+                            <option value="Widowed">Widowed</option>
+                            <option value="Separated">Separated</option>
+                            <option value="Divorce">Divorce</option>
+                            <option value="Single">Single</option>
+
+                          </select>
+                          <input type="hidden" name="vCIVILSTATUS" id="vCIVILSTATUS">
+                        </div>
+                      </div>
+                      <div class="col-lg-3">
+                        <div class="form-group">
+                          <label class="label-control">Birth date<small style="color:red;">*</small></label>
+                          <input type="text" class="form-control datepicker"
+                                 required="required" id="vBIRTH_DATE" name="vBIRTH_DATE" readonly="true"/>
+                        </div>
+                      </div>
+
+                      <div class="col-lg-3">
+                        <div class="form-group">
+                          <label class="label-control">Nationality</label>
+                          <input type="text" id="vCITIZENSHIP" name="vCITIZENSHIP" class="form-control" readonly="true"
+
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-12">
+                        <div class="form-group">
+                          <label class="label-control">Home Address<small style="color:red;">*</small></label>
+                          <input type="text" id="vHOME_ADDRESS" name="vHOME_ADDRESS" readonly="true"
+                                 class="form-control"
+                                 required="required"/>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="fileinput fileinput-new text-center" data-provides="fileinput">
+                        <div class="fileinput-new thumbnail img-raised">
+                          <img src="/PublicAccessPortal/assets/img/image_placeholder.jpg" id="vAVATAR" alt="...">
+                          <!-- <img th:src="${'/PublicAccessPortal'+avatar}" alt="...">-->
+                        </div>
+                        <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
+                        <div>
+                                  <span class="btn btn-raised btn-round btn-default btn-file">
+                                      <span class="fileinput-new">Select image</span>
+                                      <span class="fileinput-exists">Change</span>
+                                      <input type="file" name="image" id="image" accept="image/png, image/jpeg, image/jpg"/>
+                                     <input type="hidden" name="vAVATAR" id="imageValue">
+                                  </span>
+                          <a href="#" id="REMOVE" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+            <!--- --->
+            <div class="col-md-12" id="requirements">
+                <div class="card">
+                    <div class="card-content">
+                        <h4 class="card-title">
+                            List of Requirement
+                        </h4>
+                        <div class="form-group">
+                            <label class="label-control">Affidavit of Loss</label>
+                            <div class='form-group form-file-upload'>
+                            <input type="file" id="affidavit" accept="image/png, image/jpeg, image/jpg">
+                              <a data-toggle='modal' class='affidavitViewModal' id="affidavitViewModal" style="position:absolute;right:0;z-index:999;display:none;">View</a>
+                                 <div class='input-group'>
+                                <input type="text" readonly="" id="affidavitView" class="form-control file" placeholder="Attachment">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          <!-- Signature upload--->
+          <div class="modal fade" id="signatureModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-small ">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+                  <h4>Signature</h4>
+                </div>
+                <div class="modal-body text-center">
+                  <div class="fileinput fileinput-new text-center" data-provides="fileinput" id="uploadSignature">
+                    <div class="fileinput-new thumbnail img-raised">
+                      <img src="/PublicAccessPortal/assets/img/image_placeholder.jpg" alt="..." id="previewImage">
+                    </div>
+                    <div class="fileinput-preview fileinput-exists thumbnail img-raised"></div>
+                    <div>
+                          <span class="btn btn-raised btn-round btn-default btn-file">
+                          <span class="fileinput-new">Select image</span>
+                          <span class="fileinput-exists">Change</span>
+                          <input type="file" name="signature" id="signature" accept="image/png, image/jpeg, image/jpg"/>
+                          </span>
+                      <a href="#" class="btn btn-danger btn-round fileinput-exists" data-dismiss="fileinput"><i class="fa fa-times"></i> Remove</a>
+                    </div>
+                  </div>
+                  <div class="row"  id="drawSignature" style="display: none;width: 100%; height:100%">
+                    <div class="col-md-12">
+                      <canvas id="sig-canvas" width="230" height="200" style="border: 2px dotted #CCCCCC;border-radius: 15px;cursor: crosshair;"></canvas>
+                    </div>
+                  </div>
+                </div>
+                <div class="modal-footer text-center">
+                  <a href="#" class="btn btn-default" id="sig-clearBtn" style="display: none;">Clear</a>
+                  <button type="button" class="btn btn-default" id="drawButton">Draw</button>
+                  <!--                                    <button type="button" class="btn btn-default" id="uploadButton" style="display: none;">Upload</button>-->
+                </div>
+              </div>
+            </div>
+          </div>
+            <div class="col-md-6 col-md-offset-6">
+                <a class="btn btn-finish btn-fill btn-default btn-wd" data-toggle="modal" data-target="#signatureModal">
+                    Signature
+                </a>
+                <button type='submit' class='btn btn-finish btn-fill btn-success btn-wd' name='finish'
+                        id="SUBMIT_APPLICATION">
+                    Submit
+                </button>
+
+                <button type='submit' class='btn btn-finish btn-fill btn-success btn-wd' name='finish'
+                        id="SAVE_APPLICATION">
+                    Save as Draft
+                </button>
+                <a class="btn btn-default" href="/PublicAccessPortal/applications">Cancel</a>
+
+            </div>
+        </div>
+      </form>
+    </div>
+    <div class="modal fade" id="imageDocument" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="overflow: auto !important;">
+      <div class="modal-dialog modal-medium ">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="material-icons">clear</i></button>
+            <h4>Document Preview</h4>
+          </div>
+          <div class="modal-body text-center">
+            <img src="/PublicAccessPortal/assets/img/image_placeholder.jpg" id="documentPreview" style="width:500px;height:500px;">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div th:replace="fragments/footer :: footer"></div>
+  </div>
+</div>
+</html>
+
+<!--  More information about jquery.validate here: http://jqueryvalidation.org/	 -->
+<script src="/PublicAccessPortal/assets/js/wizard/jquery.validate.min.js"></script>
+
+<script src="/PublicAccessPortal/assets/js/personalize/reprint-id.js"></script>
+

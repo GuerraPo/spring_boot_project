@@ -1,0 +1,116 @@
+<html xmlns:layout="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/main_layout}">
+<div layout:fragment="content">
+  <div class="page-header header-filter header-small" data-parallax="true"
+       style="background-image: url('/PublicAccessPortal/assets/img/bg9.jpg');">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2" align="center">
+          <h2 class="title">Medical Facilities</h2>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main main-raised ">
+    <div class="container" style="padding-top:20px;">
+      <a class="btn btn-default" href="new-medical-facilities">
+        <i class="material-icons">add</i> Facilities
+        <div class="ripple-container"></div>
+      </a>
+      <div>
+        <table id="datatable" class="table" style="width:100%">
+          <thead>
+          <tr>
+            <th>Laboratory/ Hospital Name</th>
+            <th>Location</th>
+            <th>Email</th>
+            <th>Telephone / Mobile Number</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+          <tbody id="FACILITIES_LIST">
+
+          </tbody>
+        </table>
+      </div>
+      <br>
+    </div>
+  </div>
+  <!--- Medical Facilities update modal--->
+  <div class="modal fade" id="updateFacilities" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+            <i class="material-icons">clear</i>
+          </button>
+
+        </div>
+        <div class="modal-body">
+          <form method="POST" action="" id="FACILITIES_APPLICATION_FORM" th:object="${medical}">
+            <input type="hidden" name="id" id="id" th:field="*{id}">
+            <div class="row">
+              <div class="col-lg-12 text-center">
+                <h2 class="title">Medical Facilities Application Form</h2>
+                <br>
+              </div>
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-content">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Laboratory / Hospital Name<small style="color:red;">*</small></label>
+                          <input type="text" name="laboratory_name" id="LABORATORY_NAME" class="form-control" th:field="*{laboratoryName}" required/>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Location<small style="color:red;">*</small></label>
+                          <input type="text" name="location" id="LOCATION" class="form-control" th:field="*{location}" required/>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label>Email <small style="color:red;">*</small></label>
+                          <input type="email" name="email" id="EMAIL" class="form-control" th:field="*{email}" required/>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>Mobile Number<small style="color:red;">*</small> </label>
+                          <input type="text" name="mobile_number" id="MOBILE_NUMBER" class="form-control"  th:field="*{mobileNum}" required />
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label>Telephone  Number<small style="color:red;">*</small> </label>
+                          <input type="text" name="telephone_number" id="TELEPHONE_NUMBER" class="form-control"  th:field="*{telephoneNum}" required />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+              <button type='submit' class='btn btn-finish btn-fill btn-success btn-wd' name='finish'
+                      id="SUBMIT_FACILITIES_APPLICATION" />
+                Save
+              </button>
+              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+         </form>
+       </div>
+      </div>
+    </div>
+  </div>
+  <!--- End of modal--->
+
+  <div class="section-space"></div>
+  <div th:replace="fragments/footer :: footer"></div>
+</div>
+</html>
+<script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script src="/PublicAccessPortal/assets/js/personalize/facilities.js"></script>
